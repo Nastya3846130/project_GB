@@ -1,7 +1,8 @@
 package HomeWork6Test;
 
+import HomeWork6.FavoritPage;
 import HomeWork6.IndexPage;
-import HomeWork6.LoginBlock;
+import HomeWork6.LoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -10,10 +11,11 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class Asos2Test {
+public class AsosTestLesson6 {
     WebDriver driver;
     IndexPage indexPage;
-    LoginBlock loginBlock;
+    LoginPage loginBlock;
+    FavoritPage favoritPage;
     public final static String BASE_SITE = "https://www.asos.com/ru/";
 
 
@@ -26,23 +28,29 @@ public class Asos2Test {
     void setUpDriver(){
         driver = new ChromeDriver();
         indexPage = new IndexPage(driver);
-        loginBlock = new LoginBlock(driver);
+        loginBlock = new LoginPage(driver);
         driver.get(BASE_SITE);
     }
 
     @Test
-    void enterAccount(){
+    void authorization() {
         new IndexPage(driver).pipleButtonClick();
-    }
-    @Test
-    void clickRandom(){
-        new IndexPage(driver).womenPageClick().presentClick();
+        new LoginPage(driver).authorizationClick();
 
+    }
+
+    @Test
+    void likeRandomCards(){
+        new IndexPage(driver).likeRandomCard();
+        new FavoritPage(driver).successSaveFavoriteThing();
     }
 
     @AfterEach
     void tearDown() {
         driver.quit();
     }
+
+
+
 
 }

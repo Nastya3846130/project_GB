@@ -1,5 +1,7 @@
 package HomeWork6;
 
+
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,6 +20,7 @@ public class IndexPage extends Base {
     @FindBy(xpath = "//a[.='Личный кабинет']")
     WebElement userArea;
 
+    //@Step ("Переход на страницу авторизации")
     public IndexPage pipleButtonClick() {
         actions.moveToElement(driver.findElement(By.xpath(pipleButton)))
                 .build()
@@ -41,6 +44,7 @@ public class IndexPage extends Base {
 
     @FindBy(xpath = "//a[@aria-label='Отложено']")
     WebElement favoriteButton;
+
 
     public IndexPage likeRandomCard(){
         womenPage.click();

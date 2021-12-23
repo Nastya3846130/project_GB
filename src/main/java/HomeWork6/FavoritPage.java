@@ -1,5 +1,6 @@
 package HomeWork6;
 
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,6 +19,7 @@ public class FavoritPage extends Base{
 
     @FindBy (xpath = SAVE_FAVORITE)
     private WebElement saveFavorite;
+
 
     public FavoritPage successSaveFavoriteThing(){
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(SAVE_FAVORITE)));
